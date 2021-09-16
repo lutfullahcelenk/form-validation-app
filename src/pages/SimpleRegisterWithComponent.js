@@ -4,17 +4,17 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 
-const initialValues={
+const initialValues = {
     name:"",
     email:"",
     userName:"",
 }
 
-const onSubmit=(values)=>{
+const onSubmit = (values)=>{
     console.log("Values:",values)
 }
 
-const validationSchema=Yup.object({
+const validationSchema = Yup.object({
     name:Yup.string()
     .max(15,"Must be 15 characters or less")
     .required("Required.Enter name"),
