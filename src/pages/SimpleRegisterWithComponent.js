@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import '../App.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -27,7 +27,7 @@ const validationSchema=Yup.object({
 })
 
 
-function SimpleRegister() {
+function SimpleRegisterWithComponent() {
     
     return (
         <Formik className="container"
@@ -59,4 +59,4 @@ function SimpleRegister() {
         </Formik>
     )
 }
-export default SimpleRegister
+export default SimpleRegisterWithComponent;
