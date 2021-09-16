@@ -1,6 +1,7 @@
 import React from 'react'
 import '../App.css';
 import { useFormik } from "formik";
+import * as Yup from 'yup';
 
 function SimpleRegister() {
     const formik = useFormik({
@@ -12,23 +13,28 @@ function SimpleRegister() {
         onSubmit : values => {
             console.log(`values`, values)
         },
-        validate: values => {
-            let errors = {}
-            if (!values.name ){
-                errors.name = "Required. Please fill in the blank..."
-            }
-            if (!values.email ){
-                errors.email = "Required. Please fill in the blank..."
-            }
+        // validate: values => {
+        //     let errors = {}
+        //     if (!values.name ){
+        //         errors.name = "Required. Please fill in the blank..."
+        //     }
+        //     if (!values.email ){
+        //         errors.email = "Required. Please fill in the blank..."
+        //     }
 
-            else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-                errors.email = 'Invalid email address';}
+        //     else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+        //         errors.email = 'Invalid email address';}
 
-            if (!values.userName ){
-                errors.userName = "Required. Please fill in the blank..."
-            }
-            return errors;
-        }
+        //     if (!values.userName ){
+        //         errors.userName = "Required. Please fill in the blank..."
+        //     }
+        //     return errors;
+        // }
+        validationSchema : Yup.object({
+            name : Yup.string()
+                .max(15,"Must be 15 characters or less")
+                .required("Required. Enter name...")
+        })
     });
     // console.log("formik :>>", formik);
 
