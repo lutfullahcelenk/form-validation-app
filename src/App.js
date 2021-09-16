@@ -6,8 +6,11 @@ import SimpleRegisterWithComponent from './pages/SimpleRegisterWithComponent';
 function App() {
   return (
     <div className="App">
+      
       {/* <SimpleRegister/> */}
+
       <SimpleRegisterWithComponent />
+
     </div>
   );
 }
